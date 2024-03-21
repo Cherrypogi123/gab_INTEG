@@ -1,0 +1,51 @@
+import pyttsx3
+import pyaudio
+import speech_recognition
+
+def talk (text):
+
+    engine = pyttsx3.init()
+    engine.setProperty("rate",150)
+    engine.say(text)
+    engine.runAndWait()
+
+listener = speech_recognition.Recognizer
+
+def talk_command():
+
+     try:
+         with speech_recognition.Microphone() as source:
+             print("Listening....")
+             command = listener.recognition_goole()
+             command = command.lower()
+             print(command)
+
+             if "Jacob" in command:
+                 command = command.replace("jacob",'')
+                 print(command)
+                 talk(command)
+
+             if "music" in command:
+                 talk("i love nightcore")
+                 print(command)
+
+                 if "pretty" in command:
+                     talk("its CHRIS CHERRY GABIONZA")
+                     print(command)
+
+                     if "color" in command:
+                         talk("my favorite color is black and white")
+                         print(command)
+
+                         if "crush" in command:
+                             talk("SECRET!")
+                             print(command)
+
+                         else:
+                             talk("please say my name")
+
+     except:
+         pass
+     command = "no mic"
+     print(command)
+                             
